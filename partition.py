@@ -1,4 +1,5 @@
 def partition(arr, start, end, pivot_index):
+    #Lumoto's algorithm
     pointer_division = start
     pivot_val = arr[pivot_index]
     arr[pivot_index], arr[end] = arr[end], arr[pivot_index]
@@ -11,7 +12,7 @@ def partition(arr, start, end, pivot_index):
         
 
 def partition2(arr, start, end, pivot_index):
-    #This does not work yet
+    #Hoare's algorithm
     pointer_less = start
     arr[pivot_index], arr[end] = arr[end], arr[pivot_index]
     pointer_more = end - 1
@@ -25,7 +26,12 @@ def partition2(arr, start, end, pivot_index):
         elif arr[i] > arr[end]:
             arr[pointer_more], arr[i] = arr[i], arr[pointer_more]
             pointer_more-=1
-    arr[pointer_more], arr[end] = arr[end], arr[pointer_more]
+        print(arr)
+    print(pointer_less)
+    print(pointer_more)
+    arr[pointer_less], arr[end] = arr[end], arr[pointer_less]
+    print(arr)
     return pointer_more
+
 arr2 =  [2, 5, -3, 20, 16, 1, 11, -10, 30, 50, 3, 4]
-partition2(arr2, 0, 11, 10)
+partition2(arr2, 0, 11, 6)
